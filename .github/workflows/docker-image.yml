@@ -3,7 +3,7 @@ on:
   push:
     branches: [ "main" ]
     paths-ignore:
-      - ".git/workflows/*"
+      - ".github/workflows/*"
   workflow_dispatch:
 
 jobs:
