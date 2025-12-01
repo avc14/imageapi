@@ -2,7 +2,8 @@ name: Docker Image CI
 env:
   IMAGE_TAG: "latest"
 on:
-  issues: [ "opened", "deleted" ]
+  issues:
+    types: [ "opened", "deleted" ]
   push:
     branches: [ "main" ]
     paths-ignore:
