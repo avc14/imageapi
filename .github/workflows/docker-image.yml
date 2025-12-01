@@ -1,4 +1,6 @@
 name: Docker Image CI
+env:
+  IMAGE_TAG: "latest"
 on:
   push:
     branches: [ "main" ]
@@ -15,4 +17,5 @@ jobs:
     - uses: actions/checkout@v4
     - name: Build the Docker image
       run: |
-        cd ./api && docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+        echo "${{ github.event_name }} 
+        cd ./api && docker build . --file Dockerfile --tag my-image-name:${{ env.IMAGE_TAG }}
