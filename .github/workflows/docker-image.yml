@@ -15,7 +15,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     outputs:
-      IMAGE_TAG: ${{ steps.buildimage.IMAGE_TAG }}
+      IMAGE: ${{ steps.buildimage.IMAGE_TAG }}
     steps:
     - name: Get code
       uses: actions/checkout@v4
@@ -32,4 +32,4 @@ jobs:
     needs: build
     steps:
     - name: print output 
-      run: echo "${{ needs.build.outputs.IMAGE_TAG }}"
+      run: echo "${{ needs.build.outputs.IMAGE }}"
