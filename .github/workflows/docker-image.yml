@@ -12,14 +12,24 @@ on:
   workflow_dispatch:
   
 jobs:
-
   build:
     runs-on: ubuntu-latest
+    outputs:
+      IMAGE_TAG: ${{ steps.buildimage.IMAGE_TAG }}
     steps:
     - name: Get code
       uses: actions/checkout@v4
     
     - name: Build the Docker image
+      id: buildimage
       run: |
         echo "${{ github.sha }} triggered this workflow."
+        echo "IMAGE_TAG = ${{ env.IMAGE_TAG }}" >> "$GITHUB_OUTPUT"
         cd ./api && docker build . --file Dockerfile --tag my-image-name:${{ env.IMAGE_TAG }}
+        
+  publish:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+    - name: print output 
+      run: echo "${{ needs.build.outputs.IMAGE_TAG }}"
