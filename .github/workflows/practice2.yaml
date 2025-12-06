@@ -10,7 +10,7 @@ jobs:
         parameter: ["hello","tello"]
         exclude:
         - os: "ubuntu-latest"
-        - parameter: "tello"
+          parameter: "tello"
     runs-on: ${{ matrix.os }}
     steps:
     - name: print
