@@ -8,7 +8,7 @@ jobs:
       continue-on-error: true
       run: kouuoijn
     - name: i will not run
-      run: echo ${{ fromjson(github) }}
+      run: echo ${{ github }}|jq
 
   job2:
     runs-on: ubuntu-latest
