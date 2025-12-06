@@ -1,0 +1,10 @@
+name: conditional checks
+on: workflow_dispatch
+jobs: 
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+    - name: failing-test
+      run: kouuoijn
+    - name: i will not run
+      run: echo ${{ fromjson(github) }}
