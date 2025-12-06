@@ -19,6 +19,6 @@ jobs:
     if: always()
     steps:
     - name: clear
-      run: echo "clearing the workspace for username ${{env.username}} $username"
+      run: echo "clearing the workspace for username ${{env.username}} $NAME"
       
     
