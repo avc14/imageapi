@@ -15,9 +15,10 @@ jobs:
   job2:
     runs-on: ubuntu-latest
     needs: job1
+    environment: developement
     if: always()
     steps:
     - name: clear
-      run: echo "clearing the workspace for username ${{env.username}}"
+      run: echo "clearing the workspace for username ${{env.username}} $username"
       
     
