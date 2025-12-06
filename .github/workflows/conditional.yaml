@@ -8,3 +8,13 @@ jobs:
       run: kouuoijn
     - name: i will not run
       run: echo ${{ fromjson(github) }}
+
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+    if: failed()
+    steps:
+    - name: clear
+      run: echo "clearing the workspace"
+      
+    
