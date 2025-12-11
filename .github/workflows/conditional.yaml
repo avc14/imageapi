@@ -7,6 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: python
+    services:
+      redis:
+        image: redis
+        ports:
+          - 80:80
     steps:
     - name: failing-test
       continue-on-error: true
