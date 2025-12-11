@@ -5,6 +5,8 @@ env:
 jobs: 
   job1:
     runs-on: ubuntu-latest
+    container:
+      image: python
     steps:
     - name: failing-test
       continue-on-error: true
